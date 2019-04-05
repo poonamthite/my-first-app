@@ -1,0 +1,30 @@
+<div class="container">
+        <h3>Hi I am App Compenent</h3>
+    
+        <label>User Name</label>
+        <input type="text" class="form-control" [(ngModel)] = "UserName">
+        <p>{{ UserName }}</p>
+    
+        <hr>
+    
+        <button class="btn btn-primary" [disabled]="UserName === ''" (click) ="UserName = ''">RESET ME</button>
+    </div>
+<div class="container">
+    <label>Add Server</label>
+    <input type="text" class="form-control" [(ngModel)] = "serverName">
+    <p>{{ serverName }}</p>
+
+    <button class="btn btn-primary" (click) ="createServer()">CREATE SERVER</button>
+
+    <p *ngFor="let server of servers">Server status is {{serverstatus}}</p>
+    <hr>
+    <p>Assgigment directives 3</p>
+    <!-- <button class="btn btn-primary" (click) ="textExist = !textExist">Display details</button> -->
+    <button class="btn btn-primary" (click) ="toggleButton()">Display details</button>
+    <p *ngIf="textExist">My password is xyz</p>
+    <p *ngFor="let logItem  of log" 
+        [ngStyle]="{backgroundColor: logItem >=5 ? 'blue': 'transparent'}" 
+        [ngClass]="{'white-text' : logItem >=5}">{{logItem}}
+    </p>
+    
+</div>
